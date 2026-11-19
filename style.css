@@ -31,7 +31,6 @@ body {
   transform: scale(3.5);
   transform-origin: center bottom;
   image-rendering: pixelated;
-  outline: 1px dashed rgba(255, 223, 0, 0.5);
   z-index: 5;
 }
 
@@ -46,9 +45,8 @@ body {
 #king-sprite {
   width: 96px;
   height: 96px;
-  background-color: rgba(255, 223, 0, 0.12);
-  background-image: url('KingSprite.png');
-  background-size: 800% 500%;
+  background-image: url('KingSprite.jpg');
+  background-size: 800% 300%;
   background-repeat: no-repeat;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
@@ -59,12 +57,14 @@ body {
   animation: walk 0.8s steps(7) infinite;
 }
 
+/* Top row (6 frames across 8 cols -> 5/7 = 71.4285%, y = 0%) */
 @keyframes idle {
   from { background-position: 0% 0%; }
   to   { background-position: 71.4285% 0%; }
 }
 
+/* Bottom row of 3 (7 frames across 8 cols -> 6/7 = 85.7143%, y = 100%) */
 @keyframes walk {
-  from { background-position: 0% 50%; }
-  to   { background-position: 85.7143% 50%; }
+  from { background-position: 0% 100%; }
+  to   { background-position: 85.7143% 100%; }
 }
