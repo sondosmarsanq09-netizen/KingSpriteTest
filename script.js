@@ -1,7 +1,7 @@
 const king = document.getElementById('king');
 
 let x = Math.round(window.innerWidth / 2 - 48);
-let y = 550;
+let y = Math.min(550, window.innerHeight - 100);
 const speed = 5;
 let autoWalk = false;
 
@@ -42,6 +42,7 @@ function update() {
 
   if (x < 20) x = 20;
   if (x > window.innerWidth - 120) x = window.innerWidth - 120;
+  if (y > window.innerHeight - 60) y = window.innerHeight - 60;
 
   king.style.left = x + 'px';
   king.style.top = y + 'px';
