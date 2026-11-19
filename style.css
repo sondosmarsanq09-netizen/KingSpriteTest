@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #1b1829;
+  position: relative;
+  font-family: monospace;
+}
+
+#info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 8px 14px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+#king {
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  transform: scale(3.5);
+  transform-origin: center bottom;
+  image-rendering: pixelated;
+}
+
+#king.facing-right {
+  transform: scale(3.5, 3.5);
+}
+
+#king.facing-left {
+  transform: scaleX(-3.5) scaleY(3.5);
+}
+
+#king-sprite {
+  width: 96px;
+  height: 96px;
+  background-image: url('KingSprite.png');
+  background-size: 800% 500%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  animation: idle 0.9s steps(6) infinite;
+}
+
+#king.walking #king-sprite {
+  animation: walk 0.8s steps(7) infinite;
+}
+
+@keyframes idle {
+  from { background-position: 0% 0%; }
+  to   { background-position: 71.4285% 0%; }
+}
+
+@keyframes walk {
+  from { background-position: 0% 50%; }
+  to   { background-position: 85.7143% 50%; }
+}
